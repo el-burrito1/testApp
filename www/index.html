@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        
+        <div data-role="page" id="login" class="type-home">
+            <div id="fb-root"></div>
+            <script>
+              window.fbAsyncInit = function() {
+              FB.init({
+                appId      : '443530475777959',
+                status     : true, // check login status
+                cookie     : false, // enable cookies to allow the server to access the session
+                xfbml      : true  // parse XFBML
+              });
+
+              FB.Event.subscribe('auth.authResponseChange', function(response) {
+                
+                if (response.status === 'connected') {
+                 
+                  testAPI();
+                  console.log(response);
+                  console.log(location);
+                  $.mobile.pageContainer.pagecontainer("change", "#homepage");
+                } else if (response.status === 'not_authorized') {
+            
+                  FB.login();
+                } else {
+                 
+                  FB.login();
+                }
+              });
+              };
+
+              // Load the SDK asynchronously
+              (function(d){
+               var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+               if (d.getElementById(id)) {return;}
+               js = d.createElement('script'); js.id = id; js.async = true;
+               js.src = "//connect.facebook.net/en_US/all.js";
+               ref.parentNode.insertBefore(js, ref);
+              }(document));
+
+              function testAPI() {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                  console.log('Good to see you, ' + response.name + '.');
+                  console.log(response);
+                });
+              }
+            </script>
+
+            <fb:login-button show-faces="false" max-rows="1"></fb:login-button>
+
+
+        </div>
+
+
+        <div data-role='page' class='page-map' id='homepage'>
+
+            <a href='#userPanel' class='ui-btn-left ui-icon-user ui-btn-icon-notext'></a>
+            <a href='#listPanel' class='ui-btn-right ui-icon-bars ui-btn-icon-notext'></a>
+
+                <div data-role='panel' id='userPanel' data-display='overlay'>
+                        <fieldset data-role="controlgroup" data-mini="true">
+                            <legend>Relationship Status:</legend>
+                                <input type="radio" name="radio-choice-2" id="radio-choice-21" value="choice-1" checked="checked" />
+                                <label for="radio-choice-21">Single</label>
+
+                                <input type="radio" name="radio-choice-2" id="radio-choice-22" value="choice-2"  />
+                                <label for="radio-choice-22">In Relationship</label>
+                        </fieldset>
+
+                        <fieldset data-role="controlgroup" data-mini="true">
+                            <legend>Gender Preference:</legend>
+                                <input type="radio" name="radio-choice-2" id="radio-choice-21" value="choice-1" checked="checked" />
+                                <label for="radio-choice-21">Males</label>
+
+                                <input type="radio" name="radio-choice-2" id="radio-choice-22" value="choice-2"  />
+                                <label for="radio-choice-22">Females</label>
+                        </fieldset>
+
+                    <a href="#homepage" data-rel="close" class='panelButton'>Close panel</a>
+                </div>
+
+                <div data-role='panel' id='listPanel' data-display='overlay' data-position='right'>
+                    <span>This is where facebook events will be listed. User can pick an event from this list in order to view other users that are attending the same event.</span>
+                    <a href="#homepage" data-rel="close" class='panelButton'>Close panel</a>
+                </div>
+
+            <div data-role='content'>
+                <div id='map-canvas'></div>
+                <div class='buttonContainer'>
+                    <input class='ui-btn' type='button' value='singles' data-inline='true' id='singlesBtn' />
+                    <input class='ui-btn' type='button' value='view all' data-inline='true' id='viewAllBtn' />
+                    <input class='ui-btn' type='button' value='couples' data-inline='true' id='couplesBtn'/>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD90W6MypWGP6s4luD2kQHhZ9IFQrfr04g&sensor=true"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
