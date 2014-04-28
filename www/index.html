@@ -27,6 +27,17 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD90W6MypWGP6s4luD2kQHhZ9IFQrfr04g&sensor=true"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cdv-plugin-fb-connect.js"></script>
+        <script type="text/javascript" charset="utf-8" src="facebook-js-sdk.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
     </head>
     <body>
         
@@ -58,10 +69,10 @@
                         <fieldset data-role="controlgroup" data-mini="true">
                             <legend>Gender Preference:</legend>
                                 <input type="radio" name="radio-choice-2" id="radio-choice-21" value="choice-1" checked="checked" />
-                                <label for="radio-choice-21">Males</label>
+                                <label for="radio-choice-21">Male</label>
 
                                 <input type="radio" name="radio-choice-2" id="radio-choice-22" value="choice-2"  />
-                                <label for="radio-choice-22">Females</label>
+                                <label for="radio-choice-22">Female</label>
                         </fieldset>
 
                     <a href="#homepage" data-rel="close" class='panelButton'>Close panel</a>
@@ -81,17 +92,5 @@
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD90W6MypWGP6s4luD2kQHhZ9IFQrfr04g&sensor=true"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="cdv-plugin-fb-connect.js"></script>
-        <script type="text/javascript" charset="utf-8" src="facebook-js-sdk.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
 </html>
