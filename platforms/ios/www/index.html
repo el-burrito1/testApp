@@ -26,63 +26,21 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
+        <script type="text/javascript" src="cordova.js"></script>
     </head>
     <body>
         
         <div data-role="page" id="login" class="type-home">
+
             <div id="fb-root"></div>
-            <script>
-              window.fbAsyncInit = function() {
-              FB.init({
-                appId      : '443530475777959',
-                status     : true, // check login status
-                cookie     : false, // enable cookies to allow the server to access the session
-                xfbml      : true  // parse XFBML
-              });
 
-              FB.Event.subscribe('auth.authResponseChange', function(response) {
-                
-                if (response.status === 'connected') {
-                 
-                  testAPI();
-                  console.log(response);
-                  console.log(location);
-                  $.mobile.pageContainer.pagecontainer("change", "#homepage");
-                } else if (response.status === 'not_authorized') {
-            
-                  FB.login();
-                } else {
-                 
-                  FB.login();
-                }
-              });
-              };
-
-              // Load the SDK asynchronously
-              (function(d){
-               var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-               if (d.getElementById(id)) {return;}
-               js = d.createElement('script'); js.id = id; js.async = true;
-               js.src = "//connect.facebook.net/en_US/all.js";
-               ref.parentNode.insertBefore(js, ref);
-              }(document));
-
-              function testAPI() {
-                console.log('Welcome!  Fetching your information.... ');
-                FB.api('/me', function(response) {
-                  console.log('Good to see you, ' + response.name + '.');
-                  console.log(response);
-                });
-              }
-            </script>
-
-            <fb:login-button show-faces="false" max-rows="1"></fb:login-button>
-
+            <button type='button' id='login-with-facebook'>LOG IN</button>
 
         </div>
 
 
         <div data-role='page' class='page-map' id='homepage'>
+          
 
             <a href='#userPanel' class='ui-btn-left ui-icon-user ui-btn-icon-notext'></a>
             <a href='#listPanel' class='ui-btn-right ui-icon-bars ui-btn-icon-notext'></a>
@@ -91,7 +49,7 @@
                         <fieldset data-role="controlgroup" data-mini="true">
                             <legend>Relationship Status:</legend>
                                 <input type="radio" name="radio-choice-2" id="radio-choice-21" value="choice-1" checked="checked" />
-                                <label for="radio-choice-21">Single</label>
+                                <label for="radio-choice-21" id='single'>Single</label>
 
                                 <input type="radio" name="radio-choice-2" id="radio-choice-22" value="choice-2"  />
                                 <label for="radio-choice-22">In Relationship</label>
@@ -128,7 +86,8 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cdv-plugin-fb-connect.js"></script>
+        <script type="text/javascript" charset="utf-8" src="facebook-js-sdk.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript">
