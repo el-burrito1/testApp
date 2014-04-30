@@ -59,27 +59,31 @@
                 <div data-role='panel' id='userPanel' data-display='overlay'>
                         <fieldset data-role="controlgroup" data-mini="true">
                             <legend>Relationship Status:</legend>
-                                <input type="radio" name="radio-choice-2" id="radio-choice-21" value="choice-1" checked="checked" />
-                                <label for="radio-choice-21" id='single'>Single</label>
+                                <input type="radio" name="radio-choice-2" id="single" value="choice-single" checked="checked" />
+                                <label for="single" id='singleLabel'>Single</label>
 
-                                <input type="radio" name="radio-choice-2" id="radio-choice-22" value="choice-2"  />
-                                <label for="radio-choice-22">In Relationship</label>
+                                <input type="radio" name="radio-choice-2" id="couple" value="choice-couple"  />
+                                <label for="couple" id='coupleLabel'>In Relationship</label>
                         </fieldset>
 
                         <fieldset data-role="controlgroup" data-mini="true">
                             <legend>Gender Preference:</legend>
-                                <input type="radio" name="radio-choice-2" id="radio-choice-21" value="choice-1" checked="checked" />
-                                <label for="radio-choice-21">Male</label>
+                                <input type="radio" name="radio-choice-2" id="male" value="choice-male"/>
+                                <label for="male">Male</label>
 
-                                <input type="radio" name="radio-choice-2" id="radio-choice-22" value="choice-2"  />
-                                <label for="radio-choice-22">Female</label>
+                                <input type="radio" name="radio-choice-2" id="female" value="choice-female"  />
+                                <label for="female">Female</label>
                         </fieldset>
 
                     <a href="#homepage" data-rel="close" class='panelButton'>Close panel</a>
                 </div>
 
                 <div data-role='panel' id='listPanel' data-display='overlay' data-position='right'>
-                    <span>This is where facebook events will be listed. User can pick an event from this list in order to view other users that are attending the same event.</span>
+                        <fieldset data-role="controlgroup" data-mini="true" id="facebookGroups">
+                            <legend>Facebook Events:</legend>
+                                
+                        </fieldset>
+
                     <a href="#homepage" data-rel="close" class='panelButton'>Close panel</a>
                 </div>
 
