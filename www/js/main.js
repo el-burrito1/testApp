@@ -5,7 +5,6 @@ $(document).on('ready' , function(){
 
 	function onDeviceReady() {
 
-
 		console.log($('#single').text())
 
 		if (typeof CDV === 'undefined') {
@@ -78,6 +77,11 @@ $(document).on('ready' , function(){
 				for(var i = 0 ; i < res.groups.data.length ; i++){
 					events.push(res.groups.data[i].name);
 				}
+				if(gender === 'male'){
+					$('#female').attr('checked' , true).checkboxradio('refresh');
+				} else {
+					$('#male').attr('checked' , true).checkboxradio('refresh');
+				}
 			});
 		};
 
@@ -141,6 +145,11 @@ $(document).on('ready' , function(){
     		    	crossDomain: true,
     		    	success: function(data){
     		    		console.log(data);
+    		    		if(data.currentUser[0].gender === 'male' || data.currentUser[0].genderPrefOpposite === true){
+							$('#female').attr('checked' , true).checkboxradio('refresh');
+    		    		} else {
+							$('#male').attr('checked' , true).checkboxradio('refresh');
+    		    		}
     		    	},
     		    	error: function(){
     		    		console.log('there was an error');
@@ -204,15 +213,35 @@ $(document).on('ready' , function(){
            window.cordova.logger.__onDeviceReady();
        };
 
-       	// $(document).on( "pageshow", function( event, data ){
-       	// 	console.log(events);
-       	// 	for(var i=0 ; i<events.length ; i++){
-        //      		$('#facebookGroups').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
-       	// 	}
-       	//     var center = map.getCenter();
-       	//     google.maps.event.trigger(map, "resize");
-       	//     map.setCenter(center);
-       	// });
+       function updatePreference(){
+			$.ajax({
+    		    	type: 'GET',
+    		    	url:"http://127.0.0.1:3000/updatepref",
+    		    	data: {
+    		    		genderPrefOpposite : false,
+    		    	},
+    		    	dataType: 'jsonp',
+    		    	contentType: 'application/json',
+    		    	crossDomain: true,
+    		    	success: function(data){
+    		    		console.log(data);
+    		    	},
+    		    	error: function(){
+    		    		console.log('there was an error');
+    		    	}
+    		    });
+       };
+
+
+       	$(document).on( "pageshow", function( event, data ){
+       		// console.log(events);
+       		// for(var i=0 ; i<events.length ; i++){
+         //     		$('#facebookGroups').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
+       		// }
+       	 //    var center = map.getCenter();
+       	 //    google.maps.event.trigger(map, "resize");
+       	 //    map.setCenter(center);
+       	});
     };
 
 
