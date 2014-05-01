@@ -1,6 +1,6 @@
 $(document).on('ready' , function(){
 
-	var map, heatmap;
+	var map, heatmap, userID, gender;
 	var events = [];
 
 	function onDeviceReady() {
@@ -26,15 +26,20 @@ $(document).on('ready' , function(){
 		  	console.log('connected');
 		  	userID = response.authResponse.userID;
 		    var accessToken = response.authResponse.accessToken;
+
+			GetDetails(accessToken);
+
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 		    $.mobile.pageContainer.pagecontainer('change' , '#homepage');
-			    FB.api('/me/groups', {access_token : accessToken} ,function(res) {
-				      for(var i = 0 ; i < res.data.length ; i++){
-				      	$('#facebookGroups').append('<input type="radio" id="' + res.data[i].name + '"/>' + '<label for="' + res.data[i].name + '">' + res.data[i].name + '</label>').trigger('create');
-				      }
-			    });
-			    FB.api('/me', {access_token : accessToken} ,function(respuesta) {
-			      gender = respuesta.gender;
-			    });
+			    // FB.api('/me/groups', {access_token : accessToken} ,function(res) {
+				   //    for(var i = 0 ; i < res.data.length ; i++){
+				   //    	$('#facebookGroups').append('<input type="radio" id="' + res.data[i].name + '"/>' + '<label for="' + res.data[i].name + '">' + res.data[i].name + '</label>').trigger('create');
+				   //    }
+			    // });
+			    // FB.api('/me', {access_token : accessToken} ,function(respuesta) {
+			    //   gender = respuesta.gender;
+			    // });
 		  } else if (response.status === 'not_authorized') {
 		     console.log('We will deal with this later');
 		    $.mobile.pageContainer.pagecontainer('change' , '#login');
@@ -44,13 +49,13 @@ $(document).on('ready' , function(){
 		 });
 
 		var loginButton = $('#login-with-facebook');
-		 
+
 		loginButton.on('click', function(e) {
 			e.preventDefault();
 			FB.login(function(response) {
-				var userID;
-				var gender;
-				var events = [];
+				// var userID;
+				// var gender;
+				// var events = [];
 				if (response.status === 'connected') {
 					userID = response.authResponse.userID;
 		    		var accessToken = response.authResponse.accessToken;	
@@ -59,21 +64,26 @@ $(document).on('ready' , function(){
 
 					GetDetails();
 
+       				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+
 				} else {
 					$.mobile.pageContainer.pagecontainer('change' , '#login');
 				}
 			},{ scope: "email , user_groups , user_events" }); 
 		});
 
-		function GetDetails(){
-			FB.api('/me?fields=gender,groups' , function(res){
+		function GetDetails (accessToken){
+			console.log('get details function fired');
+			FB.api('/me?fields=gender,groups' , {access_token : accessToken} , function(res){
+				console.log(res);
 				userID = res.id;
 				gender = res.gender;
-				// events = [];
 				for(var i = 0 ; i < res.groups.data.length ; i++){
 					events.push(res.groups.data[i].name);
 				}
 				initUser(userID , events , gender);
+				console.log(events);
 			});
 		};
 
@@ -100,7 +110,7 @@ $(document).on('ready' , function(){
     		    });
 		};
 
-       navigator.geolocation.getCurrentPosition(onSuccess, onError);
+       // navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 	       function onSuccess(position){
 	       		console.log(position);
@@ -119,14 +129,15 @@ $(document).on('ready' , function(){
 
 	    	initialize();
 
-			$(document).on( "pageshow", function( event, data ){
-				for(var i=0 ; i<events.length ; i++){
-		      		$('#facebookGroups').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
-				}
-			    var center = map.getCenter();
-			    google.maps.event.trigger(map, "resize");
-			    map.setCenter(center);
-			});
+			// $(document).on( "pageshow", function( event, data ){
+			// 	console.log(events);
+			// 	for(var i=0 ; i<events.length ; i++){
+		 //      		$('#facebookGroups').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
+			// 	}
+			//     var center = map.getCenter();
+			//     google.maps.event.trigger(map, "resize");
+			//     map.setCenter(center);
+			// });
 
 
 			// $.ajax({
@@ -159,11 +170,32 @@ $(document).on('ready' , function(){
        if (window.cordova.logger) {
            window.cordova.logger.__onDeviceReady();
        };
+
+       	$(document).on( "pageshow", function( event, data ){
+       		console.log(events);
+       		for(var i=0 ; i<events.length ; i++){
+             		$('#facebookGroups').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
+       		}
+       	    var center = map.getCenter();
+       	    google.maps.event.trigger(map, "resize");
+       	    map.setCenter(center);
+       	});
     };
 
 
     onDeviceReady();
-	document.addEventListener("deviceready", onDeviceReady, false);  
+	document.addEventListener("deviceready", onDeviceReady, false); 
+
+	// $(document).on( "pageshow", function( event, data ){
+	// 	console.log(events);
+	// 	for(var i=0 ; i<events.length ; i++){
+ //      		$('#facebookGroups').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
+	// 	}
+	//     var center = map.getCenter();
+	//     google.maps.event.trigger(map, "resize");
+	//     map.setCenter(center);
+	// });
 
 })
+
 
