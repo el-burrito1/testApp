@@ -35,7 +35,7 @@ $(document).on('ready' , function(){
 		    useCachedDialogs: false
 		});
 
-		/////FB INIT/////////
+		/////END FB INIT/////////
 
 		/////CHECK IF USER HAS ALREADY AUTHORIZED APP AND FIRE GEOLOCATION/////
 
@@ -425,12 +425,68 @@ $(document).on('ready' , function(){
 		coupleLong.push(coupleArray[i].longitude);
 	};
 
-	 
+	var allHeatmapArray = [];
+
+	for(var i = 0 ; i < latArray.length ; i++){
+		allHeatmapArray.push(new google.maps.LatLng(latArray[i] , longArray[i]));
+	};
+
+	var singleHeatmapArray = [];
+
+	for(var i = 0 ; i < singleLat.length ; i++){
+		singleHeatmapArray.push(new google.maps.LatLng(singleLat[i] , singleLong[i]));
+	};
+
+	var coupleHeatmapArray = [];
+
+	for(var i = 0 ; i < coupleLat.length ; i++){
+		coupleHeatmapArray.push(new google.maps.LatLng(coupleLat[i] , coupleLong[i]));
+	}; 
+
+	// HEATMAP EFFECT ATTACHED TO EACH BUTTON EVENT HANDLER//
+
+	$('#singlesBtn').on('click' , function(){
+		console.log('clicked!');
+		console.log(singleHeatmapArray);
+
+		var heatmap = new google.maps.visualization.HeatmapLayer({
+		  		data: singleHeatmapArray
+			});
+
+		heatmap.setMap(map);
+	});
+
+	$('#viewAllBtn').on('click' , function(){
+		console.log('view all!');
+
+		var heatmap = new google.maps.visualization.HeatmapLayer({
+		  		data: allHeatmapArray
+			});
+
+		heatmap.setMap(map);
+	});
+
+	$('#couplesBtn').on('click' , function(){
+		console.log('couples!');
+
+		var heatmap = new google.maps.visualization.HeatmapLayer({
+		  		data: coupleHeatmapArray
+			});
+
+		heatmap.setMap(map);
+	});
 
 
+	// END HEATMAP EFFECT ATTACHED TO EACH BUTTON EVENT HANDLER//
 
 
 //////END HEATMAP EFFECT....///////////////////////////////////////////////////////////////////////////////////////////
+
+//////////GROUP/EVENT FILTERING SECTION///////////////////////////////////////////////////////////////////////////////////
+
+
+//////////END GROUP/EVENT FILTERING SECTION///////////////////////////////////////////////////////////////////////////////////
+
 
 
 
