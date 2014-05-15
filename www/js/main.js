@@ -16,6 +16,8 @@ $(document).on('ready' , function(){
 
 	function onDeviceReady() {
 
+		console.log('what the fuck is happening?')
+
 		console.log($('#single').text())
 
 	/////////////////////////////////////ENTERING FACEBOOK AUTH TERRITORY/////////GOOD LUCK!!!!!!!!!!/////////////////////////////////////////////////////////

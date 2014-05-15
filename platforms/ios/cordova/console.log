@@ -4,3 +4,87 @@
 2014-04-28 12:32:36.127 testApp[11004:70b] [CDVTimer][facebookconnectplugin] 1.800001ms
 2014-04-28 12:32:36.127 testApp[11004:70b] [CDVTimer][TotalPluginStartup] 2.250016ms
 2014-04-28 12:32:36.193 testApp[11004:70b] Resetting plugins due to page load.
+2014-05-15 15:41:24.800 testApp[63634:70b] Multi-tasking -> Device: YES, App: YES
+2014-05-15 15:41:24.806 testApp[63634:70b] Unlimited access to network resources
+2014-05-15 15:41:24.822 testApp[63634:70b] Init FacebookConnect Session
+2014-05-15 15:41:24.825 testApp[63634:70b] [CDVTimer][facebookconnectplugin] 2.622008ms
+2014-05-15 15:41:24.825 testApp[63634:70b] [CDVTimer][TotalPluginStartup] 3.039002ms
+2014-05-15 15:41:24.925 testApp[63634:70b] Resetting plugins due to page load.
+2014-05-15 15:41:25.827 testApp[63634:70b] Warning: you have included the Google Maps API multiple times on this page. This may cause unexpected errors.
+2014-05-15 15:41:25.827 testApp[63634:70b] ERROR: Method 'init:' not defined in Plugin 'org.apache.cordova.facebook.Connect'
+2014-05-15 15:41:25.828 testApp[63634:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "org.apache.cordova.facebook.Connect20228053",
+  "org.apache.cordova.facebook.Connect",
+  "init",
+  [
+    "443530475777959"
+  ]
+]
+2014-05-15 15:41:25.851 testApp[63634:70b] THREAD WARNING: ['org.apache.cordova.facebook.Connect'] took '23.111816' ms. Plugin should use a background thread.
+2014-05-15 15:41:25.860 testApp[63634:70b] Finished load of: file:///Users/spencer/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8EE0589A-E051-4451-B795-9645753931F8/testApp.app/www/index.html
+2014-05-15 15:41:25.962 testApp[63634:70b] Endpoint saved GIF89a
+2014-05-15 15:41:26.465 testApp[63634:70b] update details function fired
+2014-05-15 15:41:26.652 testApp[63634:70b] {"data":[{"end_time":"2014-05-04T15:00:00-0700","location":"Hamna Shida Yoga by Molly Mitchell-Hardt","name":"Yoga + Hike=Bliss","start_time":"2014-05-04T12:00:00-0700","timezone":"America/Los_Angeles","id":"492660267522752","rsvp_status":"unsure"}],"paging":{"cursors":{"before":"TkRreU5qWXdNalkzTlRJeU56VXlPakV6T1RreU16QXdNREE2TVRrNU9EVTRNREV6TXprNE5EQTQ=","after":"TkRreU5qWXdNalkzTlRJeU56VXlPakV6T1RreU16QXdNREE2TVRrNU9EVTRNREV6TXprNE5EQTQ="}}}
+2014-05-15 15:41:26.652 testApp[63634:70b] ["Yoga + Hike=Bliss"]
+2014-05-15 15:41:26.652 testApp[63634:70b] ["HW Football '07","WALTON/NEWTON PLUS SIZE CLOTHES","Freecycle Of Walton County GA","Transparent Trading","Haley's Crazy Adventures","365 Project N.R.S.","Harvard-Westlake Class of 2007 Alumni","D.o.D.","THE WOLFPACK"]
+2014-05-15 15:41:26.652 testApp[63634:70b] 1564082036
+2014-05-15 15:41:26.652 testApp[63634:70b] {"coords":{"latitude":34.0194543,"longitude":-118.4911912,"accuracy":5,"altitude":0,"heading":-1,"speed":-1,"altitudeAccuracy":-1},"timestamp":"2014-05-15T22:41:26.463Z"}
+2014-05-15 15:41:26.653 testApp[63634:70b] update fired
+2014-05-15 15:41:26.653 testApp[63634:70b] ["Yoga + Hike=Bliss"]
+2014-05-15 15:41:26.656 testApp[63634:70b] []
+2014-05-15 15:43:07.701 testApp[63917:70b] Multi-tasking -> Device: YES, App: YES
+2014-05-15 15:43:07.707 testApp[63917:70b] Unlimited access to network resources
+2014-05-15 15:43:07.721 testApp[63917:70b] Init FacebookConnect Session
+2014-05-15 15:43:07.723 testApp[63917:70b] [CDVTimer][facebookconnectplugin] 1.875997ms
+2014-05-15 15:43:07.723 testApp[63917:70b] [CDVTimer][TotalPluginStartup] 2.182007ms
+2014-05-15 15:43:07.820 testApp[63917:70b] Resetting plugins due to page load.
+2014-05-15 15:43:08.358 testApp[63917:70b] Warning: you have included the Google Maps API multiple times on this page. This may cause unexpected errors.
+2014-05-15 15:43:08.359 testApp[63917:70b] ERROR: Method 'init:' not defined in Plugin 'org.apache.cordova.facebook.Connect'
+2014-05-15 15:43:08.359 testApp[63917:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "org.apache.cordova.facebook.Connect773979148",
+  "org.apache.cordova.facebook.Connect",
+  "init",
+  [
+    "443530475777959"
+  ]
+]
+2014-05-15 15:43:08.381 testApp[63917:70b] THREAD WARNING: ['org.apache.cordova.facebook.Connect'] took '21.479004' ms. Plugin should use a background thread.
+2014-05-15 15:43:08.391 testApp[63917:70b] update details function fired
+2014-05-15 15:43:08.511 testApp[63917:70b] Endpoint saved GIF89a
+2014-05-15 15:43:08.551 testApp[63917:70b] Finished load of: file:///Users/spencer/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8EE0589A-E051-4451-B795-9645753931F8/testApp.app/www/index.html
+2014-05-15 15:43:08.587 testApp[63917:70b] {"data":[{"end_time":"2014-05-04T15:00:00-0700","location":"Hamna Shida Yoga by Molly Mitchell-Hardt","name":"Yoga + Hike=Bliss","start_time":"2014-05-04T12:00:00-0700","timezone":"America/Los_Angeles","id":"492660267522752","rsvp_status":"unsure"}],"paging":{"cursors":{"before":"TkRreU5qWXdNalkzTlRJeU56VXlPakV6T1RreU16QXdNREE2TVRrNU9EVTRNREV6TXprNE5EQTQ=","after":"TkRreU5qWXdNalkzTlRJeU56VXlPakV6T1RreU16QXdNREE2TVRrNU9EVTRNREV6TXprNE5EQTQ="}}}
+2014-05-15 15:43:08.588 testApp[63917:70b] ["Yoga + Hike=Bliss"]
+2014-05-15 15:43:08.588 testApp[63917:70b] ["HW Football '07","WALTON/NEWTON PLUS SIZE CLOTHES","Freecycle Of Walton County GA","Transparent Trading","Haley's Crazy Adventures","365 Project N.R.S.","Harvard-Westlake Class of 2007 Alumni","D.o.D.","THE WOLFPACK"]
+2014-05-15 15:43:08.588 testApp[63917:70b] 1564082036
+2014-05-15 15:43:08.589 testApp[63917:70b] {"coords":{"latitude":34.0194543,"longitude":-118.4911912,"accuracy":5,"altitude":0,"heading":-1,"speed":-1,"altitudeAccuracy":-1},"timestamp":"2014-05-15T22:41:33.272Z"}
+2014-05-15 15:43:08.589 testApp[63917:70b] update fired
+2014-05-15 15:43:08.589 testApp[63917:70b] ["Yoga + Hike=Bliss"]
+2014-05-15 15:43:08.593 testApp[63917:70b] []
+2014-05-15 15:45:14.561 testApp[64169:70b] Multi-tasking -> Device: YES, App: YES
+2014-05-15 15:45:14.570 testApp[64169:70b] Unlimited access to network resources
+2014-05-15 15:45:14.588 testApp[64169:70b] Init FacebookConnect Session
+2014-05-15 15:45:14.590 testApp[64169:70b] [CDVTimer][facebookconnectplugin] 2.584994ms
+2014-05-15 15:45:14.591 testApp[64169:70b] [CDVTimer][TotalPluginStartup] 3.048003ms
+2014-05-15 15:45:14.685 testApp[64169:70b] Resetting plugins due to page load.
+2014-05-15 15:45:15.640 testApp[64169:70b] Warning: you have included the Google Maps API multiple times on this page. This may cause unexpected errors.
+2014-05-15 15:45:15.640 testApp[64169:70b] ERROR: Method 'init:' not defined in Plugin 'org.apache.cordova.facebook.Connect'
+2014-05-15 15:45:15.640 testApp[64169:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "org.apache.cordova.facebook.Connect1737129534",
+  "org.apache.cordova.facebook.Connect",
+  "init",
+  [
+    "443530475777959"
+  ]
+]
+2014-05-15 15:45:15.663 testApp[64169:70b] THREAD WARNING: ['org.apache.cordova.facebook.Connect'] took '22.789062' ms. Plugin should use a background thread.
+2014-05-15 15:45:15.678 testApp[64169:70b] Finished load of: file:///Users/spencer/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8EE0589A-E051-4451-B795-9645753931F8/testApp.app/www/index.html
+2014-05-15 15:45:15.787 testApp[64169:70b] Endpoint saved GIF89a
+2014-05-15 15:45:16.210 testApp[64169:70b] update details function fired
+2014-05-15 15:45:16.401 testApp[64169:70b] {"data":[{"end_time":"2014-05-04T15:00:00-0700","location":"Hamna Shida Yoga by Molly Mitchell-Hardt","name":"Yoga + Hike=Bliss","start_time":"2014-05-04T12:00:00-0700","timezone":"America/Los_Angeles","id":"492660267522752","rsvp_status":"unsure"}],"paging":{"cursors":{"before":"TkRreU5qWXdNalkzTlRJeU56VXlPakV6T1RreU16QXdNREE2TVRrNU9EVTRNREV6TXprNE5EQTQ=","after":"TkRreU5qWXdNalkzTlRJeU56VXlPakV6T1RreU16QXdNREE2TVRrNU9EVTRNREV6TXprNE5EQTQ="}}}
+2014-05-15 15:45:16.401 testApp[64169:70b] ["Yoga + Hike=Bliss"]
+2014-05-15 15:45:16.401 testApp[64169:70b] ["HW Football '07","WALTON/NEWTON PLUS SIZE CLOTHES","Freecycle Of Walton County GA","Transparent Trading","Haley's Crazy Adventures","365 Project N.R.S.","Harvard-Westlake Class of 2007 Alumni","D.o.D.","THE WOLFPACK"]
+2014-05-15 15:45:16.401 testApp[64169:70b] 1564082036
+2014-05-15 15:45:16.401 testApp[64169:70b] {"coords":{"latitude":34.0194543,"longitude":-118.4911912,"accuracy":5,"altitude":0,"heading":-1,"speed":-1,"altitudeAccuracy":-1},"timestamp":"2014-05-15T22:45:16.206Z"}
+2014-05-15 15:45:16.402 testApp[64169:70b] update fired
+2014-05-15 15:45:16.402 testApp[64169:70b] ["Yoga + Hike=Bliss"]
+2014-05-15 15:45:16.405 testApp[64169:70b] []
