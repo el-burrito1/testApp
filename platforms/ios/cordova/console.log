@@ -88,3 +88,47 @@
 2014-05-15 15:45:16.402 testApp[64169:70b] update fired
 2014-05-15 15:45:16.402 testApp[64169:70b] ["Yoga + Hike=Bliss"]
 2014-05-15 15:45:16.405 testApp[64169:70b] []
+2014-05-19 18:39:14.023 testApp[930:70b] Multi-tasking -> Device: YES, App: YES
+2014-05-19 18:39:14.050 testApp[930:70b] Unlimited access to network resources
+2014-05-19 18:39:14.201 testApp[930:70b] Init FacebookConnect Session
+2014-05-19 18:39:14.205 testApp[930:70b] [CDVTimer][facebookconnectplugin] 3.226995ms
+2014-05-19 18:39:14.205 testApp[930:70b] [CDVTimer][TotalPluginStartup] 4.092038ms
+2014-05-19 18:39:14.643 testApp[930:70b] Resetting plugins due to page load.
+2014-05-19 18:39:16.635 testApp[930:70b] Warning: you have included the Google Maps API multiple times on this page. This may cause unexpected errors.
+2014-05-19 18:39:16.636 testApp[930:70b] what the fuck is happening?
+2014-05-19 18:39:16.636 testApp[930:70b] ERROR: Method 'init:' not defined in Plugin 'org.apache.cordova.facebook.Connect'
+2014-05-19 18:39:16.636 testApp[930:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "org.apache.cordova.facebook.Connect1551066803",
+  "org.apache.cordova.facebook.Connect",
+  "init",
+  [
+    "443530475777959"
+  ]
+]
+2014-05-19 18:39:16.664 testApp[930:70b] THREAD WARNING: ['org.apache.cordova.facebook.Connect'] took '26.934082' ms. Plugin should use a background thread.
+2014-05-19 18:39:16.686 testApp[930:70b] Finished load of: file:///Users/spencer/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/C73CA13F-E05D-436B-9E36-82E5F5476360/testApp.app/www/index.html#homepage
+2014-05-19 18:39:16.974 testApp[930:70b] Endpoint saved GIF89a
+2014-05-19 18:39:17.681 testApp[930:70b] update details function fired
+2014-05-19 18:55:36.043 testApp[2498:70b] Multi-tasking -> Device: YES, App: YES
+2014-05-19 18:55:36.049 testApp[2498:70b] Unlimited access to network resources
+2014-05-19 18:55:36.063 testApp[2498:70b] Init FacebookConnect Session
+2014-05-19 18:55:36.066 testApp[2498:70b] [CDVTimer][facebookconnectplugin] 2.259970ms
+2014-05-19 18:55:36.066 testApp[2498:70b] [CDVTimer][TotalPluginStartup] 2.691031ms
+2014-05-19 18:55:36.149 testApp[2498:70b] Resetting plugins due to page load.
+2014-05-19 18:55:37.342 testApp[2498:70b] Warning: you have included the Google Maps API multiple times on this page. This may cause unexpected errors.
+2014-05-19 18:55:37.342 testApp[2498:70b] what the fuck is happening?
+2014-05-19 18:55:37.342 testApp[2498:70b] ERROR: Method 'init:' not defined in Plugin 'org.apache.cordova.facebook.Connect'
+2014-05-19 18:55:37.342 testApp[2498:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "org.apache.cordova.facebook.Connect1149914510",
+  "org.apache.cordova.facebook.Connect",
+  "init",
+  [
+    "443530475777959"
+  ]
+]
+2014-05-19 18:55:37.369 testApp[2498:70b] THREAD WARNING: ['org.apache.cordova.facebook.Connect'] took '26.579834' ms. Plugin should use a background thread.
+2014-05-19 18:55:37.387 testApp[2498:70b] Finished load of: file:///Users/spencer/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/0F3C30A1-CD3F-42E6-ACD1-000B432179E0/testApp.app/www/index.html#homepage
+2014-05-19 18:55:37.492 testApp[2498:70b] Endpoint saved GIF89a
+2014-05-19 18:55:37.691 testApp[2498:70b] update details function fired
+2014-05-19 18:55:38.604 testApp[2498:70b] {"gender":"male","groups":{"data":[{"name":"HW Football '07","bookmark_order":3,"id":"2411834553"},{"name":"WALTON/NEWTON PLUS SIZE CLOTHES","unread":21,"bookmark_order":4,"id":"610859665592098"},{"name":"Freecycle Of Walton County GA","unread":25,"bookmark_order":5,"id":"161629743969195"},{"name":"Transparent Trading","unread":4,"bookmark_order":6,"id":"478974618794183"},{"name":"Haley's Crazy Adventures","unread":25,"bookmark_order":7,"id":"311154622286331"},{"name":"365 Project N.R.S.","bookmark_order":8,"id":"203689619662454"},{"name":"Harvard-Westlake Class of 2007 Alumni","unread":2,"bookmark_order":2,"id":"174140342615985"},{"name":"D.o.D.","unread":2,"bookmark_order":9,"id":"160265480669597"},{"name":"THE WOLFPACK","unread":2,"bookmark_order":1,"id":"5827019317"}],"paging":{"next":"https://graph.facebook.com/v1.0/1564082036/groups?icon_size=16&access_token=CAAGTY3x0r6cBALbZCcME3muRSVHSaPF23MMXsc0qZCr9d3oqiawlbfWxULhgInF0C9CIkG3JK73aswAbPH30K5itQ2fUDMGHnJlBN0jYaOUlaHznWHkFdZCLn4HX4jcHzt01KwFwQT8w6n3PHbSvCcDL7Ghj8LTm16xZBqggg2ZADM7Ho02x5FKBeZAkZCEfLoIP2ZC5RphMzpLLJ91F3fdb&limit=5000&offset=5000&__after_id=enc_Aewtr7VZA89MaaQde34gTPf3HiydlhC9OiVY2XpPx1qihRnlc3c6XUvr32o1Q4Rt9o8"}},"id":"1564082036"}
+Terminating in response to SpringBoard's termination.

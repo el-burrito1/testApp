@@ -16,8 +16,6 @@ $(document).on('ready' , function(){
 
 	function onDeviceReady() {
 
-		console.log('what the fuck is happening?')
-
 		console.log($('#single').text())
 
 	/////////////////////////////////////ENTERING FACEBOOK AUTH TERRITORY/////////GOOD LUCK!!!!!!!!!!/////////////////////////////////////////////////////////
@@ -69,21 +67,28 @@ $(document).on('ready' , function(){
 		function updateDetails (accessToken , position){
 			console.log('update details function fired');
 			FB.api('/me?fields=gender,groups,events' , {access_token : accessToken} , function(res){
+		
 				userID = res.id;
 				gender = res.gender;
-				console.log(res.events);
-				for(var i = 0 ; i < res.events.data.length ; i++){
-					events.push(res.events.data[i].name);
+
+				if(res.groups === undefined){
+					console.log('user has no groups')
+				} else {
+					for(var i = 0 ; i < res.groups.data.length ; i++){
+						groups.push(res.groups.data[i].name)
+					}
 				}
 
-				for(var i = 0 ; i < res.groups.data.length ; i++){
-					groups.push(res.groups.data[i].name);
+				if(res.events === undefined){
+					console.log('user has no events')
+				} else {
+					for(var i = 0 ; i < res.events.data.length ; i++){
+						events.push(res.events.data[i].name)
+					}
 				}
-				console.log(events);
-				console.log(groups);
-				console.log(userID);
-				console.log(position);
+
 				updateUser(userID , events , position);
+
 			});
 		};
 
@@ -94,7 +99,8 @@ $(document).on('ready' , function(){
     		    	url:"http://127.0.0.1:3000/updateuser",
     		    	data: {
     		    		_id        : userID,
-    		    		userEvents : events,
+    		    		userEvents : events || '',
+    		    		userGroups : groups || '',
     		    		latitude   : position.coords.latitude, 
     		    		longitude  : position.coords.longitude
     		    	},
@@ -144,12 +150,16 @@ $(document).on('ready' , function(){
 
        	    console.log(events);
 
-       	    for(var i=0 ; i<events.length ; i++){
-             		$('#facebookEvents').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
+       	    if(events.length > 0){
+	       	    for(var i=0 ; i<events.length ; i++){
+	             		$('#facebookEvents').append('<input class="fbEvents" type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
+	       		}
        		};
 
-       		for(var i=0 ; i<groups.length ; i++){
-             		$('#facebookGroups').append('<input type="radio" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>').trigger('create');
+       		if(groups.length > 0){
+	       		for(var i=0 ; i<groups.length ; i++){
+	             		$('#facebookGroups').append('<input class="fbGroups" type="radio" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>').trigger('create');
+	       		}
        		};
 		};
 
@@ -189,13 +199,22 @@ $(document).on('ready' , function(){
 				userID = res.id;
 				gender = res.gender;
 
-				for(var i = 0 ; i < res.events.data.length ; i++){
-					events.push(res.events.data[i].name);
+				if(res.groups === undefined){
+					console.log('user has no groups')
+				} else {
+					for(var i = 0 ; i < res.groups.data.length ; i++){
+						groups.push(res.groups.data[i].name)
+					}
 				}
 
-				for(var i = 0 ; i < res.groups.data.length ; i++){
-					groups.push(res.groups.data[i].name);
+				if(res.events === undefined){
+					console.log('user has no events')
+				} else {
+					for(var i = 0 ; i < res.events.data.length ; i++){
+						events.push(res.events.data[i].name)
+					}
 				}
+
 				if(gender === 'male'){
 					$('#female').attr('checked' , true).checkboxradio('refresh');
 				} else {
@@ -212,7 +231,8 @@ $(document).on('ready' , function(){
     		    	data: {
     		    		userGender : gender,
     		    		_id        : userID,
-    		    		userEvents : events,
+    		    		userEvents : events || '',
+    		    		userGroups : groups || '',
     		    		latitude   : userLatitude, 
     		    		longitude  : userLongitude,
     		    	},
@@ -254,14 +274,16 @@ $(document).on('ready' , function(){
        	    google.maps.event.trigger(map, "resize");
        	    map.setCenter(center);
 
-    	    console.log(events);
+       	    if(events.length > 0){
+	       	    for(var i=0 ; i<events.length ; i++){
+	             		$('#facebookEvents').append('<input class="fbEvents" type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
+	       		}
+       		};
 
-    	    for(var i=0 ; i<events.length ; i++){
-          		$('#facebookEvents').append('<input type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
-    		};
-
-    		for(var i=0 ; i<groups.length ; i++){
-             	$('#facebookGroups').append('<input type="radio" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>').trigger('create');
+       		if(groups.length > 0){
+	       		for(var i=0 ; i<groups.length ; i++){
+	             		$('#facebookGroups').append('<input class="fbGroups" type="radio" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>').trigger('create');
+	       		}
        		};
         };
 
@@ -359,7 +381,7 @@ $(document).on('ready' , function(){
 
 		$('#couple').bind('change' , function(){
 			updateRelationshipCouple();
-		})
+		});
 		
 		function updateRelationshipSingle(){
 			$.ajax({
@@ -485,8 +507,107 @@ $(document).on('ready' , function(){
 //////END HEATMAP EFFECT....///////////////////////////////////////////////////////////////////////////////////////////
 
 //////////GROUP/EVENT FILTERING SECTION///////////////////////////////////////////////////////////////////////////////////
+	$(document).on('change' , '.fbGroups' , function(){
+		var groupFilter = $(this).attr('id');
 
+		var allGroups = allHeatmapArray.filter(function(i){
+			return i.groups === groupFilter;
+		});
 
+		var singleGroups = singleHeatmapArray.filter(function(i){
+			return i.groups === groupFilter;
+		});
+
+		var coupleGroups = singleHeatmapArray.filter(function(i){
+			return i.groups === groupFilter;
+		});
+
+		// THROWING IN SOME CODE, BE CAREFUL//////////////
+				$('#singlesBtn').on('click' , function(){
+					console.log('clicked!');
+					console.log(singleHeatmapArray);
+
+					var heatmap = new google.maps.visualization.HeatmapLayer({
+					  		data: singleGroups
+						});
+
+					heatmap.setMap(map);
+				});
+
+				$('#viewAllBtn').on('click' , function(){
+					console.log('view all!');
+
+					var heatmap = new google.maps.visualization.HeatmapLayer({
+					  		data: allGroups
+						});
+
+					heatmap.setMap(map);
+				});
+
+				$('#couplesBtn').on('click' , function(){
+					console.log('couples!');
+
+					var heatmap = new google.maps.visualization.HeatmapLayer({
+					  		data: coupleGroups
+						});
+
+					heatmap.setMap(map);
+				});
+		// END THROWING IN CODE, CHECK ABOVE/////////////////////
+
+	});
+
+	$(document).on('change' , '.fbEvents' , function(){
+		var eventFilter = $(this).attr('id');
+
+		var allEvents = allHeatmapArray.filter(function(i){
+			return i.events === eventFilter;
+		});
+
+		var singleEvents = singleHeatmapArray.filter(function(i){
+			return i.groups === eventFilter;
+		});
+
+		var coupleEvents = singleHeatmapArray.filter(function(i){
+			return i.groups === eventFilter;
+		});
+
+		// THROWING IN CODE AGAIN, BE CAREFUL//////////////////
+
+		$('#singlesBtn').on('click' , function(){
+			console.log('clicked!');
+			console.log(singleHeatmapArray);
+
+			var heatmap = new google.maps.visualization.HeatmapLayer({
+			  		data: singleEvents
+				});
+
+			heatmap.setMap(map);
+		});
+
+		$('#viewAllBtn').on('click' , function(){
+			console.log('view all!');
+
+			var heatmap = new google.maps.visualization.HeatmapLayer({
+			  		data: allEvents
+				});
+
+			heatmap.setMap(map);
+		});
+
+		$('#couplesBtn').on('click' , function(){
+			console.log('couples!');
+
+			var heatmap = new google.maps.visualization.HeatmapLayer({
+			  		data: coupleEvents
+				});
+
+			heatmap.setMap(map);
+		});
+
+		// END THROWING IN CODE, TEST ABOVE/////////////////////////
+	});
+	
 //////////END GROUP/EVENT FILTERING SECTION///////////////////////////////////////////////////////////////////////////////////
 
 
