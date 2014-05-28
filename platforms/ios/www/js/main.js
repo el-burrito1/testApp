@@ -12,13 +12,13 @@ $(document).on('ready' , function(){
 
 	var uniqueArray  = [];
 
-	/////////GLOBAL VARIABLES////////////
+	var userLogged;
+
+	/////////END GLOBAL VARIABLES////////////
 
 	function onDeviceReady() {
 
-		console.log($('#single').text())
-
-	/////////////////////////////////////ENTERING FACEBOOK AUTH TERRITORY/////////GOOD LUCK!!!!!!!!!!/////////////////////////////////////////////////////////
+	/////////////////////////////////////ENTERING FACEBOOK AUTH TERRITORY//////////////////////////////////////////////////////////////////
 
 		//////FB INIT////////
 
@@ -44,8 +44,9 @@ $(document).on('ready' , function(){
 
 		  	userID = response.authResponse.userID;	
 		    accessToken = response.authResponse.accessToken;
+		    userLogged = true;
 
-		    $.mobile.pageContainer.pagecontainer('change' , '#homepage');
+		    $.mobile.pageContainer.pagecontainer('change' , '#homepage' , {transition:'none'});
 
 
        		navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -58,7 +59,13 @@ $(document).on('ready' , function(){
 		  	console.log('I am tripping');
 		    $.mobile.pageContainer.pagecontainer('change' , '#login');
 		  }
-		 });
+		});
+
+
+
+
+
+
 
 		function onSuccess(position){
 			updateDetails(accessToken , position);
@@ -150,17 +157,30 @@ $(document).on('ready' , function(){
 
        	    console.log(events);
 
-       	    if(events.length > 0){
-	       	    for(var i=0 ; i<events.length ; i++){
-	             		$('#facebookEvents').append('<input class="fbEvents" type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
-	       		}
-       		};
+
+       		if(events.length > 0){
+       			$('#facebookEvents input').remove();
+       			var initialEvent = '<input type="radio" id="noEvents" name="radio-choice-4" checked="checked"/>'+'<label for="noEvents">' + 'NO EVENTS' + '</label>';
+       			var eventRadios = ''
+       			for(var i = 0 ; i <events.length ; i++){
+       				eventRadios += '<input type="radio" name="radio-choice-4" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>';
+       			}
+       			$('#facebookEvents').append(initialEvent).enhanceWithin();
+       			$('#facebookEvents').append(eventRadios).enhanceWithin();
+       		}
+
+       		
 
        		if(groups.length > 0){
-	       		for(var i=0 ; i<groups.length ; i++){
-	             		$('#facebookGroups').append('<input class="fbGroups" type="radio" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>').trigger('create');
-	       		}
-       		};
+       			$('#facebookGroups input').remove();
+       			var initialGroup = '<input type="radio" id="noGroups" name="radio-choice-3" checked="checked"/>'+'<label for="noGroups">' + 'NO GROUPS' + '</label>';
+       			var radios = ''
+       			for (var i = 0; i < groups.length; i++) {
+       			    radios += '<input type="radio" name="radio-choice-3" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>';
+       			}
+       			$('#facebookGroups').append(initialGroup).enhanceWithin();
+       			$('#facebookGroups').append(radios).enhanceWithin();
+       		}    
 		};
 
 
@@ -275,16 +295,27 @@ $(document).on('ready' , function(){
        	    map.setCenter(center);
 
        	    if(events.length > 0){
-	       	    for(var i=0 ; i<events.length ; i++){
-	             		$('#facebookEvents').append('<input class="fbEvents" type="radio" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>').trigger('create');
-	       		}
-       		};
+       	    	$('#facebookEvents input').remove();
+       	    	var initialEvent = '<input type="radio" id="noEvents" name="radio-choice-4" checked="checked"/>'+'<label for="noEvents">' + 'NO EVENTS' + '</label>';
+       	    	var eventRadios = ''
+       	    	for(var i = 0 ; i <events.length ; i++){
+       	    		eventRadios += '<input type="radio" name="radio-choice-4" id="' + events[i] + '"/>' + '<label for="' + events[i] + '">' + events[i] + '</label>';
+       	    	}
+       	    	$('#facebookEvents').append(initialEvent).enhanceWithin();
+       	    	$('#facebookEvents').append(eventRadios).enhanceWithin();
+       	    }
 
-       		if(groups.length > 0){
-	       		for(var i=0 ; i<groups.length ; i++){
-	             		$('#facebookGroups').append('<input class="fbGroups" type="radio" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>').trigger('create');
-	       		}
-       		};
+       	    if(groups.length > 0){
+       	    	$('#facebookGroups input').remove();
+       	    	var initialGroup = '<input type="radio" id="noGroups" name="radio-choice-3" checked="checked"/>'+'<label for="noGroups">' + 'NO GROUPS' + '</label>';
+       	    	var radios = ''
+       	    	for (var i = 0; i < groups.length; i++) {
+       	    	    radios += '<input type="radio" name="radio-choice-3" id="' + groups[i] + '"/>' + '<label for="' + groups[i] + '">' + groups[i] + '</label>';
+       	    	}
+       	    	$('#facebookGroups').append(initialGroup).enhanceWithin();
+       	    	$('#facebookGroups').append(radios).enhanceWithin();
+       	    }    
+
         };
 
         function onError(error){
@@ -522,7 +553,7 @@ $(document).on('ready' , function(){
 			return i.groups === groupFilter;
 		});
 
-		// THROWING IN SOME CODE, BE CAREFUL//////////////
+		// THROWING IN SOME CODE//////////////
 				$('#singlesBtn').on('click' , function(){
 					console.log('clicked!');
 					console.log(singleHeatmapArray);
@@ -553,7 +584,7 @@ $(document).on('ready' , function(){
 
 					heatmap.setMap(map);
 				});
-		// END THROWING IN CODE, CHECK ABOVE/////////////////////
+		// END THROWING IN CODE/////////////////////
 
 	});
 
@@ -572,7 +603,7 @@ $(document).on('ready' , function(){
 			return i.groups === eventFilter;
 		});
 
-		// THROWING IN CODE AGAIN, BE CAREFUL//////////////////
+		// THROWING IN CODE AGAIN//////////////////
 
 		$('#singlesBtn').on('click' , function(){
 			console.log('clicked!');

@@ -32,6 +32,7 @@
         <param name="onload" value="true" />
     </feature>
     <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
+    <icon height="60" src="img/load.png" width="60" />
     <name>testApp</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
